@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="test-project/project-lambda/src/|workspace-v2/lambda/binaryOperator_interface/|workspace-v2/lambda/consumer_interface/|workspace-v2/lambda/supplier_inteface/|workspace-v2/lambda/predicate_interface/|workspace-v2/lambda/function_interface/|beginner/src/|intermediate/src/|workspace-v2/lambda/unaryOperator/" kind="src" path=""/>
+	<classpathentry kind="src" path="beginner/src"/>
+	<classpathentry kind="src" path="intermediate/src"/>
+	<classpathentry kind="src" path="test-project/project-lambda/src"/>
+	<classpathentry kind="src" path="workspace-v2/lambda/binaryOperator_interface"/>
+	<classpathentry kind="src" path="workspace-v2/lambda/consumer_interface"/>
+	<classpathentry kind="src" path="workspace-v2/lambda/function_interface"/>
+	<classpathentry kind="src" path="workspace-v2/lambda/predicate_interface"/>
+	<classpathentry kind="src" path="workspace-v2/lambda/supplier_inteface"/>
+	<classpathentry kind="src" path="workspace-v2/lambda/unaryOperator"/>
+	<classpathentry kind="output" path="beginner/bin"/>
+</classpath>

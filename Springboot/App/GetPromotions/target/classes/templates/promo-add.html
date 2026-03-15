@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS -->
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" />
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="target" class="corpo" layout:fragment="corpo">
+    <div id="loader-form" class="pre-load"></div>
+    <form id="form-add-promo" action="#">
+      <div id="alert"></div>
+      <div class="form-group">
+        <label for="linkPromocao">Link da Oferta</label>
+        <input type="url" class="form-control" id="linkPromocao" name="linkPromocao" value=""
+          placeholder="Ex.: http://www..." />
+        <small id="linkOferta" class="form-text text-muted">
+          Insira o link da promocao correspondente a oferta.
+        </small>
+        <div id="error-linkPromocao" class=""></div>
+      </div>
+      <div class="col-md-4 p-3">
+        <button id="buscarOferta" class="btn btn-primary">
+          Buscar Oferta
+        </button>
+      </div>
+      <div class="form-group">
+        <label for="site">Site</label>
+        <input type="text" class="form-control" id="site" name="site" aria-describedby="siteNome" />
+        <small id="siteNome" class="form-text text-muted">Carregamento automático, mas pode ser
+          editado.</small>
+        <div id="error-titulo"></div>
+      </div>
+      <div class="form-group">
+        <label for="titulo">Título da Oferta</label>
+        <input type="text" class="form-control" id="titulo" name="titulo" aria-describedby="tituloOferta" />
+        <small id="tituloOferta" class="form-text text-muted">Carregamento automático, mas pode ser
+          editado.</small>
+        <div id="error-titulo"></div>
+      </div>
+      <div class="form-row">
+        <div class=" col-md-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-header">Imagem</div>
+            <i class="mx-auto" id="loader-img"></i>
+            <img id="linkImagem" name="linkImagem" class="card-img-top" th:src="@{/images/promo-dark.png}"
+              width="308px" />
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="form-group">
+            <label for="preco">Preço da Oferta</label>
+            <input type="text" class="form-control" id="preco" name="preco" placeholder="ex.: 59,99"
+              data-mask="#.##0,00" data-mask-reverse="true" />
+            <div id="error-preco" class=""></div>
+          </div>
+          <div class="form-group">
+            <label for="categoria">Categoria do Produto</label>
+            <select id="categoria" name="categoria" class="form-control">
+              <option value="">Selecione</option>
+              <option th:each="c : ${categorias}" th:text="${c.titulo}" th:value="${c.id}">...</option>
+            </select>
+            <div id="error-categoria"></div>
+          </div>
+          <div class="form-group">
+            <label for="descricao">Descrição da Oferta</label>
+            <textarea class="form-control" id="descricao" name="descricao"
+              placeholder="Algo sobre a promoção ou produto..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 p-3">
+        <button id="btn-og" class="btn btn-primary btn-lg btn-block">Cadastrar</button>
+        <span id="loader-img-btn"></span>
+      </div>
+    </form>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script th:src="@{/script/promo-add.js}"></script>
+</body>
+
+</html>

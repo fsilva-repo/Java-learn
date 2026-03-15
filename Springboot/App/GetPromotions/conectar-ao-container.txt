@@ -1,0 +1,15 @@
+# conectar ao container
+
+- docker exec -it mysql-container mysql -u user -p #senha: root
+
+# subir o container com o compose
+
+- docker compose up -d
+
+# desligar o container preservando o volume
+
+- docker compose down
+
+# desligar o container destruindo o volume
+
+- docker compose down -v

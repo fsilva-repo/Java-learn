@@ -1,0 +1,33 @@
+.corpo {
+	width: 100vw;
+	padding-top: 1rem;
+}
+#loader-img {
+	font-size: 48px;
+}
+#form-add-promo {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 1%;
+	flex-direction: column;
+}
+.block-img {
+	max-width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+@media (min-width: 900px) {
+	#form-add-promo {
+		width: 80%;
+	}
+}
+@media (min-width: 1200px) {
+	.corpo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	#form-add-promo {
+		width: 60%;
+	}
+}

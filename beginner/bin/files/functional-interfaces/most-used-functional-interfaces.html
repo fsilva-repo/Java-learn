@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p>Em Java, as <strong>interfaces funcionais</strong> são interfaces que possuem apenas <strong>um método abstrato</strong> (SAM - Single Abstract Method) e são amplamente utilizadas em expressões lambda e programação funcional. A partir do Java 8, muitas interfaces funcionais foram introduzidas no pacote <code>java.util.function</code>, além de outras já existentes em versões anteriores.</p>
+<p>Aqui estão as <strong>interfaces funcionais mais usadas em Java</strong>:</p>
+<hr>
+<h3 id="🔹-principais-interfaces-do-pacote-java.util.function">🔹 Principais interfaces do pacote <code>java.util.function</code></h3>
+<ol>
+<li>
+<p><strong><code>Predicate&lt;T&gt;</code></strong></p>
+<ul>
+<li><strong>Método abstrato:</strong> <code>boolean test(T t)</code></li>
+<li><strong>Uso:</strong> Verifica uma condição e retorna <code>true</code> ou <code>false</code>.</li>
+<li><strong>Exemplo:</strong><pre class=" language-java"><code class="prism  language-java">Predicate<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span> isEven <span class="token operator">=</span> num <span class="token operator">-</span><span class="token operator">&gt;</span> num <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>isEven<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>Function&lt;T, R&gt;</code></strong></p>
+<ul>
+<li><strong>Método abstrato:</strong> <code>R apply(T t)</code></li>
+<li><strong>Uso:</strong> Transforma um valor de um tipo (<code>T</code>) em outro (<code>R</code>).</li>
+<li><strong>Exemplo:</strong><pre class=" language-java"><code class="prism  language-java">Function<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Integer<span class="token operator">&gt;</span> strToLength <span class="token operator">=</span> s <span class="token operator">-</span><span class="token operator">&gt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>strToLength<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token string">"Java"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 4</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>Consumer&lt;T&gt;</code></strong></p>
+<ul>
+<li><strong>Método abstrato:</strong> <code>void accept(T t)</code></li>
+<li><strong>Uso:</strong> Executa uma ação com um argumento, mas não retorna nada.</li>
+<li><strong>Exemplo:</strong><pre class=" language-java"><code class="prism  language-java">Consumer<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> printUpperCase <span class="token operator">=</span> s <span class="token operator">-</span><span class="token operator">&gt;</span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+printUpperCase<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// HELLO</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>Supplier&lt;T&gt;</code></strong></p>
+<ul>
+<li><strong>Método abstrato:</strong> <code>T get()</code></li>
+<li><strong>Uso:</strong> Fornece um valor sem receber argumentos (como um “fabricante”).</li>
+<li><strong>Exemplo:</strong><pre class=" language-java"><code class="prism  language-java">Supplier<span class="token operator">&lt;</span>Double<span class="token operator">&gt;</span> randomValue <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>randomValue<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0.123...</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>UnaryOperator&lt;T&gt;</code></strong> (herda <code>Function&lt;T, T&gt;</code>)</p>
+<ul>
+<li><strong>Método abstrato:</strong> <code>T apply(T t)</code></li>
+<li><strong>Uso:</strong> Operação que recebe e retorna o mesmo tipo.</li>
+<li><strong>Exemplo:</strong><pre class=" language-java"><code class="prism  language-java">UnaryOperator<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span> square <span class="token operator">=</span> x <span class="token operator">-</span><span class="token operator">&gt;</span> x <span class="token operator">*</span> x<span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>square<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 25</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>BinaryOperator&lt;T&gt;</code></strong> (herda <code>BiFunction&lt;T, T, T&gt;</code>)</p>
+<ul>
+<li><strong>Método abstrato:</strong> <code>T apply(T t1, T t2)</code></li>
+<li><strong>Uso:</strong> Combina dois valores do mesmo tipo e retorna um resultado do mesmo tipo.</li>
+<li><strong>Exemplo:</strong><pre class=" language-java"><code class="prism  language-java">BinaryOperator<span class="token operator">&lt;</span>Integer<span class="token operator">&gt;</span> sum <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>sum<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 10</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="🔹-outras-interfaces-funcionais-úteis">🔹 Outras interfaces funcionais úteis</h3>
+<ol start="7">
+<li>
+<p><strong><code>BiFunction&lt;T, U, R&gt;</code></strong></p>
+<ul>
+<li><strong>Método:</strong> <code>R apply(T t, U u)</code></li>
+<li><strong>Uso:</strong> Recebe dois argumentos (<code>T</code> e <code>U</code>) e retorna um resultado (<code>R</code>).</li>
+<li><strong>Exemplo:</strong><pre class=" language-java"><code class="prism  language-java">BiFunction<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> Integer<span class="token punctuation">,</span> String<span class="token operator">&gt;</span> concatNumbers <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> a <span class="token operator">+</span> <span class="token string">"-"</span> <span class="token operator">+</span> b<span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>concatNumbers<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "10-20"</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>BiPredicate&lt;T, U&gt;</code></strong></p>
+<ul>
+<li><strong>Método:</strong> <code>boolean test(T t, U u)</code></li>
+<li><strong>Uso:</strong> Avalia dois argumentos e retorna um <code>boolean</code>.</li>
+<li><strong>Exemplo:</strong><pre class=" language-java"><code class="prism  language-java">BiPredicate<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Integer<span class="token operator">&gt;</span> checkLength <span class="token operator">=</span> <span class="token punctuation">(</span>s<span class="token punctuation">,</span> len<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> len<span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>checkLength<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"Java"</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>Runnable</code></strong> (antes do Java 8)</p>
+<ul>
+<li><strong>Método:</strong> <code>void run()</code></li>
+<li><strong>Uso:</strong> Executa uma tarefa sem argumentos ou retorno.</li>
+<li><strong>Exemplo:</strong><pre class=" language-java"><code class="prism  language-java">Runnable task <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span>task<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>Comparator&lt;T&gt;</code></strong> (antes do Java 8)</p>
+<ul>
+<li><strong>Método:</strong> <code>int compare(T o1, T o2)</code></li>
+<li><strong>Uso:</strong> Compara dois objetos para ordenação.</li>
+<li><strong>Exemplo:</strong><pre class=" language-java"><code class="prism  language-java">Comparator<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> byLength <span class="token operator">=</span> <span class="token punctuation">(</span>s1<span class="token punctuation">,</span> s2<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> s1<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> s2<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+List<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> words <span class="token operator">=</span> Arrays<span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token string">"Java"</span><span class="token punctuation">,</span> <span class="token string">"Python"</span><span class="token punctuation">,</span> <span class="token string">"C"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+words<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>byLength<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [C, Java, Python]</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="🔹-resumo-das-interfaces-mais-usadas">🔹 Resumo das interfaces mais usadas</h3>
+
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Método</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Predicate&lt;T&gt;</code></td>
+<td><code>boolean test(T t)</code></td>
+<td>Testa uma condição (true/false).</td>
+</tr>
+<tr>
+<td><code>Function&lt;T, R&gt;</code></td>
+<td><code>R apply(T t)</code></td>
+<td>Transforma <code>T</code> em <code>R</code>.</td>
+</tr>
+<tr>
+<td><code>Consumer&lt;T&gt;</code></td>
+<td><code>void accept(T t)</code></td>
+<td>Consome um valor (sem retorno).</td>
+</tr>
+<tr>
+<td><code>Supplier&lt;T&gt;</code></td>
+<td><code>T get()</code></td>
+<td>Fornece um valor (sem entrada).</td>
+</tr>
+<tr>
+<td><code>UnaryOperator&lt;T&gt;</code></td>
+<td><code>T apply(T t)</code></td>
+<td>Operação unária (mesmo tipo).</td>
+</tr>
+<tr>
+<td><code>BinaryOperator&lt;T&gt;</code></td>
+<td><code>T apply(T t1, T t2)</code></td>
+<td>Operação binária (mesmo tipo).</td>
+</tr>
+</tbody>
+</table><hr>
+<h3 id="📌-observações-importantes">📌 <strong>Observações importantes:</strong></h3>
+<ul>
+<li>Todas essas interfaces podem ser usadas com <strong>expressões lambda</strong> ou <strong>method references</strong> (<code>::</code>).</li>
+<li>Muitas delas possuem <strong>métodos default</strong> úteis, como <code>and()</code>, <code>or()</code>, <code>negate()</code> (no <code>Predicate</code>), <code>compose()</code> (no <code>Function</code>), etc.</li>
+<li>Algumas interfaces, como <code>Runnable</code> e <code>Comparator</code>, existiam antes do Java 8, mas se tornaram funcionais com a introdução de lambdas.</li>
+</ul>
+<p>Essas interfaces são essenciais para programação funcional em Java, especialmente quando trabalhamos com <strong>Streams API</strong> e processamento de coleções. 🚀</p>
+</div>
+</body>
+
+</html>
