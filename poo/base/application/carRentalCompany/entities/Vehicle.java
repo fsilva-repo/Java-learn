@@ -14,9 +14,9 @@ public class Vehicle {
 		this.age = builder.age;
 		this.color = builder.color;
 		this.chassis = builder.chassis;
-	}
+	}	
 	
-	
+
 	public static class Builder {
 		private String model;
 		private LocalDate age;
@@ -39,5 +39,20 @@ public class Vehicle {
 	public String getColor() {return color;}
 	public String getChassis() {return chassis;}
 	
+
+	
+	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
