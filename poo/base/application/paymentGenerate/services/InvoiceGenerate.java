@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InvoiceGenerate {
-
+	private LocalDate contractDate;
 	private int installmentQuantity;
 	private double contractValue;
 	
@@ -14,6 +14,10 @@ public class InvoiceGenerate {
 	public void setInstallmentQuantity(int installmentQuantity) {this.installmentQuantity = installmentQuantity;}
 	public double getContractValue() {return contractValue;}
 	public void setContractValue(double contractValue) {this.contractValue = contractValue;}
+	public LocalDate getContractDate() {return contractDate;}
+	public void setContractDate(String contractDate) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		this.contractDate = LocalDate.parse(contractDate, formatter);}
 
 	private double valueOfInstallment;
 	private double simpleRate;
@@ -37,8 +41,12 @@ public class InvoiceGenerate {
 	
 	public List<String> toGenerateBilling() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		LocalDate date = LocalDate.now();
-		
+		LocalDate date;
+		if(contractDate == null) {
+			date = LocalDate.now();
+		} else {
+			date = contractDate;
+		}
 		for (int i = 0; i < this.installmentQuantity; i++) {
 			LocalDate nextInvoice = date.plusMonths(i + 1);
 			billings.add(nextInvoice.format(formatter));

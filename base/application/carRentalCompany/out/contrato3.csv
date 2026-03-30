@@ -1,6 +1,0 @@
-cliente_nome;cnh;endereço;
-Flavio Silva;123456789;Rua nijia de fatima, 10;
-veiculo_modelo;ano;cor;chassi
-Chevrolet onix;2021-05-23;red;x90w904344-ktmmk23;
-data_locação;valor_por_hora;valor_por_dia;horas_decorridas;dias_decorridos;tempo_estourado;total_a_pagar
-2026-03-15T09:10;22.0;300.0;2:37;1;Ultrapassou a tolerancia de 10min;Total R$ 366.00;

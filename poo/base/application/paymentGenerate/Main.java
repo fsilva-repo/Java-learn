@@ -9,6 +9,7 @@ public class Main {
 	void main() {
 		
 		InvoiceGenerate invoice = new InvoiceGenerate();
+		invoice.setContractDate("28/04/2026");
 		invoice.setContractValue(600);
 		invoice.setInstallmentQuantity(3);
 		invoice.toGenerateBilling();
@@ -21,13 +22,6 @@ public class Main {
 				System.out.println(billings.get(i) + " - " + installments.get(i));
 			}
 		
-			//System.out.println(invoice.billings.get(6) + " - " + invoice.installments.get(6));
-			
-		
-		//int n = invoice.installments.size();
-			//IO.println(n);
-			//IO.println(invoice.installments.get(0));
-			//IO.println(invoice.billings.get(0));
 	}
 
 }
