@@ -20,3 +20,83 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+/.metadata/
+### --- SEGURANÇA E CONFIGURAÇÕES (Nunca commitar!) ---
+.env
+.env.*
+!.env.example    # Mantém o exemplo para referência de variáveis
+*.pem
+*.key
+*.cert
+secrets.yml
+auth.json
+credentials.json
+
+### --- SISTEMA OPERACIONAL (Linux/Unix) ---
+# Arquivos de sistema e temporários
+*~
+.DS_Store        # (Caso alguém use macOS)
+.directory
+.Trash-999
+nohup.out
+core
+*.swp            # Arquivos de troca do Vim
+
+### --- AMBIENTES DE DESENVOLVIMENTO (IDE/Editores) ---
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# JetBrains (PyCharm, WebStorm, etc)
+.idea/
+
+### --- DEPENDÊNCIAS E LINGUAGENS ---
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# Logs e Dados temporários
+logs
+*.log
+tmp/
+temp/
+
+### --- BUILDS E SAÍDAS ---
+dist/
+build/
+out/
+bin/
+obj/
+
+### --- ECLIPSE ---
+.metadata/          # Pasta de workspace do Eclipse
+.recommenders/      # Dados do assistente de código
+bin/                # Arquivos binários compilados (.class)
+tmp/                # Arquivos temporários do Eclipse
+*.tmp
+*.bak
+*.swp
+*~
+.settings/          # Configurações específicas de projeto (opcional, veja nota abaixo)
+.classpath          # Definições de caminhos de classe
+.project            # Metadados do projeto Eclipse
+.factorypath        # Configurações de processadores de anotação
+.springBeans        # Configurações do plugin Spring (se usar)
+.pydevproject       # Configurações do PyDev (se usar Python no Eclipse)
+
+# Saídas de compilação comuns
+*.class
+*.jar
+*.war
+*.ear
