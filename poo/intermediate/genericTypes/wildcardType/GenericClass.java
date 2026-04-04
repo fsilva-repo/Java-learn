@@ -1,4 +1,4 @@
-package poo.intermediate.genericTypes.useGeneric;
+package poo.intermediate.genericTypes.wildcardType;
 
 import java.util.List;
 
