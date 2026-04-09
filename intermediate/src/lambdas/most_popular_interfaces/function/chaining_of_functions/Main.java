@@ -13,7 +13,8 @@ public class Main {
 
 		// lista imutavel
 		List<Person> persons = Arrays.asList(p1, p2, p3, p4, p5);
-
+		persons.forEach(System.out::println);
+		IO.println("-----------------------");
 		/*
 		 * encadeamento de metodos com o compose.
 		 * o compose aplica um metodo ao resultado
