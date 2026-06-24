@@ -1,0 +1,7 @@
+podman run -d \
+  --name mariadb-academia \
+  -e MYSQL_ROOT_PASSWORD=Admin \
+  -e MYSQL_USER=root \
+  -p 3306:3306 \
+  -v academia-data:/var/lib/mysql \
+  docker.io/library/mariadb:latest

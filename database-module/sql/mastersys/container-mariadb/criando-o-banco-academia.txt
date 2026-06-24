@@ -1,0 +1,6 @@
+# Primeiro cri o bancod e dados no mariadb < CREATE DATABASE academia; >
+# Apos a criação do banco rode os comando abaixo no mesmo diretorio onde
+# se encontra os arquivos < schema-academia.sql e seed-academia.sql >
+
+cat schema-academia.sql | podman exec -i mariadb-academia mariadb -uroot -pAdmin academia
+cat seed-academia.sql | podman exec -i mariadb-academia mariadb -uroot -pAdmin academia
