@@ -1,0 +1,10 @@
+
+new User(null, "John Doe", "john.doe@example.com", "123456789", "oUH87$3"),
+new User(null, "Jane Smith", "jane.smith@example.com", "987654321", "kL98$#2"),
+new User(null, "Bob Johnson", "bob.johnson@example.com", "555555555", "mN45@!9")
+
+#coneferir github
+https://github.com/fsilva-repo/webapp-1_v1/commits?author=fsilva-repo
+
+# h2 endereco
+http://localhost:8080/h2-console/
