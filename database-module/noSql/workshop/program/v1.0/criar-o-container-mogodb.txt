@@ -1,0 +1,9 @@
+podman volume create mongodb_data
+
+podman run -d \
+  --name mongodb \
+  -p 27017:27017 \
+  -v mongodb_data:/data/db \
+  -e MONGO_INITDB_ROOT_USERNAME=admin \
+  -e MONGO_INITDB_ROOT_PASSWORD=123456 \
+  docker.io/library/mongo:8

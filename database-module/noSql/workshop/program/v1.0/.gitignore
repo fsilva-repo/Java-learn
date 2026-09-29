@@ -1,0 +1,112 @@
+# ==============================================================================
+# IDES & EDITORES DE CÓDIGO
+# ==============================================================================
+# VS Code
+.vscode/
+!.vscode/extensions.json
+.factorypath
+.history/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Eclipse
+.metadata/
+.classpath
+.project
+.settings/
+*.launch
+bin/
+
+# ==============================================================================
+# LINGUAGEM (JAVA) E FERRAMENTAS DE COMPILAÇÃO
+# ==============================================================================
+# Compilação Java (.class e pacotes compactados)
+*.class
+*.log
+*.ctxt
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# NetBeans
+**/nbproject/private/
+**/nbbuild/
+**/dist/
+**/nbdist/
+/.nb-gradle/
+
+# ==============================================================================
+# SISTEMA OPERACIONAL (Arquivos temporários e de sistema)
+# ==============================================================================
+# Linux
+~*
+.fuse_hidden*
+.directory
+.trash/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotbackup
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.lnk
+*.cab
+DumpStack.log.tmp
+
+# ==============================================================================
+# SEGURANÇA E AMBIENTE (Nunca envie credenciais para o Git)
+# ==============================================================================
+.env
+.env.local
+.env.*.local
+*.properties.local
+*.yml.local
+*.yaml.local
+credentials.json
+*.pem
+*.key
+*.p12
+
+# ==============================================================================
+# ARQUIVOS TEMPORÁRIOS E LOGS
+# ==============================================================================
+logs/
+*.log
+/tmp/
