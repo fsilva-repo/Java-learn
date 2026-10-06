@@ -12,6 +12,8 @@ public class UserDTO implements Serializable{
   private String email;
   public UserDTO() {}
 
+  // neste padrão pega-se um obj User e tranforma em obj UserDTO
+  // que sera o obj que vai trafegar na rede
   public UserDTO(User user) {
     this.id = user.getId();
     this.name = user.getName();

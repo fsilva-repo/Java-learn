@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.workshop.program.domain.User;
+import com.workshop.program.dto.UserDTO;
 import com.workshop.program.exceptions.ObjectNotFoundException;
 import com.workshop.program.repository.UserRepository;
 
@@ -65,6 +66,16 @@ public class UserService {
     return repository.findById(id)
       .orElseThrow(() ->
       new ObjectNotFoundException("Usuario não existe"));
-}
-  
+  }
+
+  public User insert(User user) {
+    return repository.insert(user);
+  }
+
+  // o metodo que devolve um obj User a partir de um obj UserDTO
+  // foi implementado aqui poque aqui ja temos uma conexao com o repository
+  // facilitando futuras melhorias no sistema
+  public User fromDTO(UserDTO userDto) {
+    return new User(userDto.getId(), userDto.getName(), userDto.getEmail()); 
+  }
 }
