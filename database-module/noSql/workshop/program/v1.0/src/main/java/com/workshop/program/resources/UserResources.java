@@ -11,8 +11,8 @@ import com.workshop.program.services.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.springframework.boot.web.server.autoconfigure.ServerProperties.Servlet;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -58,6 +58,11 @@ public class UserResources {
     // retorna uma resposta vazia com o status 201 e no cabeçalho
     // o endereço do novo recurso criado 
     return ResponseEntity.created(uri).build();
+  }
 
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> delete(@PathVariable String id) {
+    service.delete(id);
+    return ResponseEntity.noContent().build();
   }
 }
