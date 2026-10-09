@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 
@@ -65,4 +67,31 @@ public class UserResources {
     service.delete(id);
     return ResponseEntity.noContent().build();
   }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<Void> update(@PathVariable String id, @RequestBody UserDTO dto) {
+    User user = service.fromDTO(dto);// pega o dto e tranforma em obj User
+    user.setId(id);// o obj em foco tem que ter o id da busca
+    user = service.update(user);// atualiza as informações do obj
+    ///return ResponseEntity.noContent().build();
+
+
+
+    URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+    .path("/{id}")
+    .buildAndExpand(user.getId()).toUri();
+
+    // retorna uma resposta vazia com o status 201 e no cabeçalho
+    // o endereço do novo recurso criado 
+    return ResponseEntity.created(uri).build();
+  }
+
+
 }
+
+
+
+
+
+
+

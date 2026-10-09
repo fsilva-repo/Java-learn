@@ -68,6 +68,7 @@ public class UserService {
       new ObjectNotFoundException("Usuario não existe"));
   }
 
+  // inserir novos usuarios
   public User insert(User user) {
     return repository.insert(user);
   }
@@ -79,8 +80,24 @@ public class UserService {
     return new User(userDto.getId(), userDto.getName(), userDto.getEmail()); 
   }
 
+  // deletar um usuario
   public void delete(String id) {
     findById(id);
     repository.deleteById(id);
   }
+
+  // atualizar um usuario
+  public User update(User user) {
+    User newUser = findById(user.getId());
+    return repository.save(updateData(newUser, user));  
+  }
+  // metodo auxiliar
+  private User updateData(User newUser, User user) {
+    newUser.setName(user.getName());
+    newUser.setEmail(user.getEmail());
+    return  newUser;
+  }
+
+
+  
 }
