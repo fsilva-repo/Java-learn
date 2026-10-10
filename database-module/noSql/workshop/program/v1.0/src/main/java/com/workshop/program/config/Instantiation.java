@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.workshop.program.domain.Post;
 import com.workshop.program.domain.User;
+import com.workshop.program.dto.AuthorDTO;
 import com.workshop.program.repository.PostRepository;
 import com.workshop.program.repository.UserRepository;
 
@@ -36,14 +37,15 @@ public class Instantiation implements CommandLineRunner {
     // salvar primeiro para gerar os IDs
     userRepo.saveAll(Arrays.asList(maria, alex, bob));
 
-
+    // uma copia dos dados do author sera salvo na coleção post do banco de dados
     Post p1 = new Post(
-      null, dateTime, "partiu viagem!", "ferias em Santa Catarina meu sonho", maria);
-    Post p2 = new Post(null, dateTime, "saudades", "boas ferias", alex);
-    Post p3 = new Post(null, dateTime, "boa viagem!", "ferias meu sonho :)", bob);
+      null, dateTime, "partiu viagem!", "ferias em Santa Catarina meu sonho", new AuthorDTO(maria));
+    Post p2 = new Post(null, dateTime, "saudades", "boas ferias", new AuthorDTO(alex));
+    Post p3 = new Post(null, dateTime, "boa viagem!", "ferias meu sonho :)", new AuthorDTO(bob));
 
+    
     postRepo.saveAll(Arrays.asList(p1, p2, p3));
-
+    
   }
 
 }
