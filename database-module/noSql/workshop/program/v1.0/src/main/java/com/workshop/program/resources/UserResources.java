@@ -73,17 +73,7 @@ public class UserResources {
     User user = service.fromDTO(dto);// pega o dto e tranforma em obj User
     user.setId(id);// o obj em foco tem que ter o id da busca
     user = service.update(user);// atualiza as informações do obj
-    ///return ResponseEntity.noContent().build();
-
-
-
-    URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-    .path("/{id}")
-    .buildAndExpand(user.getId()).toUri();
-
-    // retorna uma resposta vazia com o status 201 e no cabeçalho
-    // o endereço do novo recurso criado 
-    return ResponseEntity.created(uri).build();
+    return ResponseEntity.noContent().build();
   }
 
 
