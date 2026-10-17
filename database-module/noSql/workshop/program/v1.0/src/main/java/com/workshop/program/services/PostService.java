@@ -1,5 +1,7 @@
 package com.workshop.program.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.workshop.program.domain.Post;
@@ -21,5 +23,7 @@ public class PostService {
       new ObjectNotFoundException("Post não encontrado"));
   }
 
-  
+  public List<Post> fyndByTitle(String text) {
+    return repository.findByTitleContainingIgnoreCase(text);
+  }
 }
