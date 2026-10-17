@@ -4,13 +4,11 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.workshop.program.domain.Post;
 import com.workshop.program.domain.User;
 import com.workshop.program.dto.UserDTO;
 import com.workshop.program.services.UserService;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
